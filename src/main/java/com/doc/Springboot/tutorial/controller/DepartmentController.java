@@ -4,10 +4,7 @@ package com.doc.Springboot.tutorial.controller;
 import com.doc.Springboot.tutorial.entity.Department;
 import com.doc.Springboot.tutorial.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,4 +24,8 @@ public class DepartmentController {
         return service.fetchDepartmentList();
     }
 
+    @GetMapping("/departments/{id}")
+    public Department fetchDepartmentById(@PathVariable("id")  Long departmentId){
+        return service.fetchDepartmentById(departmentId);
+    }
 }
